@@ -1,0 +1,1 @@
+import{s as t}from"./scheduler.D4RpAn30.js";import{S as e,i as s}from"./index.DhDxpWlc.js";const n={title:"AAAAAAAA",date:"2024-07-30",updated:"2024-07-30",categories:["test"],coverWidth:16,coverHeight:9,excerpt:"testing."};class l extends e{constructor(a){super(),s(this,a,null,null,t,{})}}export{l as default,n as metadata};
