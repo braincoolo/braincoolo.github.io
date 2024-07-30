@@ -1,11 +1,11 @@
 :root {
 	/* Colors */
 	--accent: #fff;
-	--background: #1b1714;
-	--lightAccent: #0a1e22;
-	--lighterAccent: #353a31;
-	--dark: #c2d7e4;
-	--darker: #6b94ce;
+	--background: #14101B;
+	--lightAccent: #14101B;
+	--lighterAccent: #E7E6E9;
+	--dark: #34303A;
+	--darker: #E7E6E9;
 	--slate: #667b9b;
 
 	--white: #152030;
