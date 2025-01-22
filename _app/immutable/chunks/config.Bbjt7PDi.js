@@ -1,1 +1,0 @@
-const t="Littlepage",e="The space of a deranged lunatic",s="littlepa.ge",o="- This website is free and open source.",a=10,c=[{title:"Blog",route:"/blog"},{title:"Projects",route:"/projects"},{title:"Contact",route:"/contact"}];export{t as a,o as b,s as c,c as n,a as p,e as s};
