@@ -1,21 +1,7 @@
 // Counter
-async function updateCounter() {
-    const counterEndpoint = `https://api.countapi.xyz/hit/littlepa.ge/visits`;
-
-    try {
-
-        await fetch(counterEndpoint, { mode: 'no-cors' });
-        
-        const getEndpoint = `https://api.countapi.xyz/get/littlepa.ge/visits`;
-        const response = await fetch(getEndpoint);
-        const data = await response.json();
-        animateCounter(data.value, 'visitorCount');
-    } catch (error) {
-        console.error('Counter error:', error);
-        document.getElementById('visitorCount').textContent = '0000ERR';
-    }
-}
-
+let visitorCount = localStorage.getItem('visitorCount') || 0o0;
+visitorCount = parseInt(visitorCount) + 1;
+localStorage.setItem('visitorCount', visitorCount.toString());
 
 // Counter animation
 function animateCounter(target, elementId) {
@@ -70,7 +56,7 @@ function updateLastModified() {
 
 // Initialize everything
 window.onload = function() {
-    updateCounter();
+    animateCounter(visitorCount, 'visitorCount');
     createMarquee('Under Construction ••★•• Best Viewed on a Computer');
     updateLastModified();
     
