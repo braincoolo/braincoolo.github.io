@@ -1,7 +1,17 @@
 // Counter
-let visitorCount = localStorage.getItem('visitorCount') || 0o0;
-visitorCount = parseInt(visitorCount) + 1;
-localStorage.setItem('visitorCount', visitorCount.toString());
+async function updateCounter() {
+    const counterId = 'braincoolo.github.io';
+    const countAPI = `https://api.countapi.xyz/hit/braincooloo/${counterId}`;
+
+    try {
+        const response = await fetch(countAPI);
+        const data = await response.json();
+        animateCounter(data.value, 'visitorCount');
+    } catch (error) {
+        console.error('CountAPI error:', error);
+        document.getElementById('visitorCount').textContent = '0000ERR';
+    }
+}
 
 // Counter animation
 function animateCounter(target, elementId) {
@@ -56,7 +66,7 @@ function updateLastModified() {
 
 // Initialize everything
 window.onload = function() {
-    animateCounter(visitorCount, 'visitorCount');
+    updateCounter();
     createMarquee('Under Construction ••★•• Best Viewed on a Computer');
     updateLastModified();
     
