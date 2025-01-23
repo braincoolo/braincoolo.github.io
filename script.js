@@ -1,7 +1,6 @@
 // Counter
 async function updateCounter() {
-    const counterId = 'braincoolo.github.io';
-    const countAPI = `https://api.countapi.xyz/hit/braincooloo/${counterId}`;
+    const countAPI = `https://api.countapi.xyz/hit/fdhuidug/littlepa.ge`;
 
     try {
         const response = await fetch(countAPI);
