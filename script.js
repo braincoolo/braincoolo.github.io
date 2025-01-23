@@ -1,16 +1,11 @@
 // Counter
 async function updateCounter() {
-    const counterEndpoint = 'https://counter.dev/count?p=littlepa.ge';
+    const counterEndpoint = `https://api.countapi.xyz/hit/littlepa.ge/visits`;
 
     try {
-
-        await fetch(counterEndpoint);
-        
-        setTimeout(async () => {
-            const response = await fetch(`${counterEndpoint}&t=${Date.now()}`);
-            const count = await response.text();
-            animateCounter(parseInt(count), 'visitorCount');
-        }, 500);
+            const response = await fetch(counterEndpoint);
+        const data = await response.json();
+        animateCounter(data.value, 'visitorCount');
     } catch (error) {
         console.error('Counter error:', error);
         document.getElementById('visitorCount').textContent = '0000ERR';
