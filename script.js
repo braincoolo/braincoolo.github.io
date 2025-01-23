@@ -3,7 +3,11 @@ async function updateCounter() {
     const counterEndpoint = `https://api.countapi.xyz/hit/littlepa.ge/visits`;
 
     try {
-            const response = await fetch(counterEndpoint);
+
+        await fetch(counterEndpoint, { mode: 'no-cors' });
+        
+        const getEndpoint = `https://api.countapi.xyz/get/littlepa.ge/visits`;
+        const response = await fetch(getEndpoint);
         const data = await response.json();
         animateCounter(data.value, 'visitorCount');
     } catch (error) {
