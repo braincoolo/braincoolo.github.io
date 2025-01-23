@@ -1,16 +1,22 @@
 // Counter
 async function updateCounter() {
-    const countAPI = `https://api.countapi.xyz/hit/fdhuidug/littlepa.ge`;
+    const counterEndpoint = 'https://counter.dev/count?p=littlepa.ge';
 
     try {
-        const response = await fetch(countAPI);
-        const data = await response.json();
-        animateCounter(data.value, 'visitorCount');
+
+        await fetch(counterEndpoint);
+        
+        setTimeout(async () => {
+            const response = await fetch(`${counterEndpoint}&t=${Date.now()}`);
+            const count = await response.text();
+            animateCounter(parseInt(count), 'visitorCount');
+        }, 500);
     } catch (error) {
-        console.error('CountAPI error:', error);
+        console.error('Counter error:', error);
         document.getElementById('visitorCount').textContent = '0000ERR';
     }
 }
+
 
 // Counter animation
 function animateCounter(target, elementId) {
