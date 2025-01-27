@@ -1,0 +1,195 @@
+body {
+    background-color: #000;
+    background-image: 
+        linear-gradient(rgba(0, 80, 0, 0.2), rgba(0, 0, 0, 0.8)),
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAKrVq36zwjjgzhhYWGMYAEYB8RmROaABADeOQ8CXl/xfgAAAABJRU5ErkJggg==');
+    background-size: cover;
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* CRT Effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.container {
+    max-width: 90%;
+    margin: 20px auto;
+    border: 3px solid #0f0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+    position: relative;
+    transform: perspective(1000px) rotateX(3deg);
+}
+
+.container h1 {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* Glowing Border */
+@keyframes glow {
+    0% { box-shadow: 0 0 10px rgba(0, 255, 0, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(0, 255, 0, 0.6); }
+    100% { box-shadow: 0 0 10px rgba(0, 255, 0, 0.3); }
+}
+
+.container {
+    animation: glow 3s ease-in-out infinite;
+}
+
+.content-box {
+    border: 2px solid #0f0;
+    padding: 15px;
+    margin: 15px 0;
+    background: rgba(0, 20, 0, 0.3);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.content-box:hover {
+    transform: translateX(10px);
+    box-shadow: 5px 5px 0 rgba(0, 255, 0, 0.2);
+}
+
+.link-box {
+    border: 2px solid #f0f;
+    padding: 15px;
+    margin: 15px 0;
+    background: rgba(20, 0, 20, 0.3);
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255,0,255,0.1) 10px,
+            rgba(255,0,255,0.1) 20px
+        );
+}
+
+#visitorCount {
+    font-family: 'VT323', monospace;
+    font-size: 1.2em;
+    color: #ff0;
+}
+
+/* Marquee */
+.custom-marquee {
+    color: #ff0;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+    padding: 5px 0;
+    background: rgba(0, 0, 0, 0.7);
+    border-top: 2px solid #0f0;
+    border-bottom: 2px solid #0f0;
+}
+
+.marquee-bar {
+    width: 80%;
+    margin: 10px auto;
+    border: 2px solid #0f0;
+    background: rgba(0, 20, 0, 0.3);
+    height: 24px;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-content {
+    position: absolute;
+    white-space: nowrap;
+    color: #ff0;
+    font-weight: bold;
+    line-height: 24px;
+    text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+    animation: marquee 20s linear infinite;
+    left: 100%;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-200%); }
+}
+
+.view-source {
+    /* Keep existing styles from .view-source */
+    display: inline-block;
+    cursor: pointer;
+    padding: 8px 15px;
+    border: 2px solid #0f0;
+    background: rgba(0, 20, 0, 0.3);
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Remove underline */
+    color: #0f0 !important;
+}
+
+.view-source:hover {
+    background: rgba(0, 255, 0, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+.retro-badges {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+    flex-wrap: wrap;
+    max-width: 300px;
+    justify-content: flex-end;
+}
+
+.retro-badge {
+    transition: transform 0.3s ease;
+    border: 1px solid #0f0;
+    padding: 2px;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.retro-badge:hover {
+    transform: scale(1.1) rotate(3deg);
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* Blog styles */
+.blog-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 2rem auto;
+  }
+  
+  .post-date {
+    color: #666;
+    font-size: 0.9em;
+  }
+  
+  .blog-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    padding: 2rem;
+  }
